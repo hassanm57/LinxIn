@@ -1,0 +1,33 @@
+# LinxIn — your job hunt stays on your machine.
+# Personal data and generated artifacts are never committed.
+
+# Pipeline data (single source of truth lives locally, not in git)
+data/
+!data/.gitkeep
+
+# Generated CVs, cover letters, PDFs
+output/
+!output/.gitkeep
+
+# Your filled-in profile & CVs (templates are tracked; your real ones are not)
+profile/profile.md
+profile/cv-local.md
+profile/cv-intl.md
+profile/stories.md
+
+# Node
+node_modules/
+npm-debug.log*
+.npm
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

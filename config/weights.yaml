@@ -1,0 +1,19 @@
+# Dimension weights for the Fit and Reality scores.
+# Each block should sum to 100. Tune to what matters to YOU.
+
+fit:
+  skills_match: 25         # JD requirements vs. your profile skills
+  seniority_fit: 15        # under/over-leveled is a soft penalty
+  mission_alignment: 10    # do you care about the problem?
+  growth_learning: 10      # trajectory, mentorship, new skills
+  compensation: 15         # vs. your comp target
+  company_health: 10       # funding, stability, layoffs, reviews
+  work_style: 10           # remote/async/timezone expectations
+  effort_vs_reward: 5      # high-friction low-payoff roles score down
+
+reality:
+  geo_eligibility: 40      # from geo-check; authorization-required ⇒ near-veto
+  timezone_overlap: 20     # required sync hours vs. PKT
+  payment_feasibility: 20  # can you actually be paid? (see payment_paths)
+  comp_purchasing_power: 15 # from comp-reality, vs. cost of living
+  interview_process_fit: 5 # onsite-only, 3am live-coding, etc.

@@ -1,0 +1,35 @@
+# LinxIn settings — tune these to your situation.
+
+# Score thresholds. A role is "pursue-worthy" only when ALL three clear.
+thresholds:
+  fit: 65
+  reality: 50
+  trust: 70
+  scam_flag_below: 40   # Trust score below this ⇒ quarantined as likely scam
+
+# Where you are / how you'd work
+locale:
+  timezone: "Asia/Karachi"   # UTC+5 (PKT)
+  base_currency: "PKR"
+  # Rough monthly cost-of-living anchor in PKR, used by comp-reality to judge
+  # whether an offer is actually livable. Set to your real number.
+  monthly_cost_of_living_pkr: 250000
+
+# Comp targets. LinxIn compares offers against these.
+comp_targets:
+  local_monthly_pkr: 400000       # your target for a Pakistan-based role
+  remote_annual_usd: 60000        # your target for a global remote role
+
+# Payment paths you can actually receive money through (used by comp-reality
+# and reality scoring). Remove any that don't apply to you.
+payment_paths:
+  - payoneer
+  - wise
+  - deel
+  - eor          # Employer of Record (e.g. Deel/Remote.com hiring you locally)
+  - direct_contract
+
+# FX rate used for rough conversions. Update periodically — this is an
+# estimate, not a live feed. comp-reality always labels conversions as approximate.
+fx:
+  usd_to_pkr: 280

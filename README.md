@@ -1,6 +1,6 @@
 # LinxIn
 
-**Your AI-run war room for the job hunt — from Karachi to remote-anywhere.**
+**Your AI-run war room for your job hunt!**
 
 LinxIn turns your AI coding CLI (Claude Code, and friends) into a local, private job-search
 operations system. It reads listings, scores them honestly, tells you which ones are real,
