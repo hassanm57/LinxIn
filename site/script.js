@@ -45,3 +45,20 @@ document.querySelectorAll(".feat").forEach((el) => {
     el.style.setProperty("--my", `${e.clientY - r.top}px`);
   });
 });
+
+// interactive terminal — click a CLI tab, the launch command swaps
+const termLaunch = document.getElementById("term-launch");
+const termLaunchLine = document.querySelector(".term-launch-line");
+const termTabs = document.querySelectorAll(".term-tab");
+termTabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    if (tab.classList.contains("is-active")) return;
+    termTabs.forEach((t) => { t.classList.remove("is-active"); t.setAttribute("aria-selected", "false"); });
+    tab.classList.add("is-active");
+    tab.setAttribute("aria-selected", "true");
+    const swap = () => { termLaunch.textContent = tab.dataset.cli; };
+    if (reduce || !termLaunchLine) { swap(); return; }
+    termLaunchLine.classList.add("swap");
+    setTimeout(() => { swap(); termLaunchLine.classList.remove("swap"); }, 120);
+  });
+});
