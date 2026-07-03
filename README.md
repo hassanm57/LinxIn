@@ -13,12 +13,12 @@ It **never** applies for you. AI evaluates and drafts; **you** decide and hit su
 > [`DESIGN.md`](./DESIGN.md)) plus a working core: onboarding (`profile`), pipeline intake
 > (`ingest` / `track`), and the full three-score evaluation engine (`evaluate` with `geo-check`,
 > `comp-reality`, `trust-check`), plus a working ATS `scan`er (`scripts/scan.mjs`, live against
-> Greenhouse/Ashby/Lever), and the output layer (`tailor-cv` + `cover-letter` → ATS-clean PDFs
-> via Playwright). That means you can already go end-to-end: from a pasted listing or a bulk
-> portal scan, to an honest pursue/skip report, to a tailored CV and cover letter. Next up are
-> the freelance and prep skills (`proposal`, `story-bank`, `interview-prep`) and the dashboard —
-> see the [Roadmap](#roadmap). Nothing here silently pretends to run; if you're here to
-> contribute, you're early — welcome.
+> Greenhouse/Ashby/Lever), the output layer (`tailor-cv` + `cover-letter` → ATS-clean PDFs via
+> Playwright), and the freelance + prep track (`proposal`, `story-bank`, `interview-prep`). That
+> means the whole search loop works today — discover, evaluate, tailor, apply, and prep — all
+> local and human-in-the-loop, and there's a local web dashboard (`npm run dashboard`) to browse
+> it all. Every roadmap milestone is now built; see the [Roadmap](#roadmap). Nothing here
+> silently pretends to run; if you're here to contribute, you're early — welcome.
 
 ---
 
@@ -159,8 +159,8 @@ npx linxin init
 # 5. For anything that clears your thresholds:
 #      "tailor my CV and draft a cover letter for <job>"
 
-# 6. Browse everything in the dashboard
-#      linxin dashboard
+# 6. Browse everything in the visual dashboard
+npm run dashboard      # opens http://localhost:4173
 ```
 
 Everything runs inside your AI CLI and on your disk. See [`DESIGN.md`](./DESIGN.md) for how the
@@ -174,9 +174,13 @@ Your entire search lives in one human-readable markdown file (`data/tracker.md`)
 source of truth. `track` keeps it clean: de-duplicating, normalizing statuses, and running
 integrity checks so nothing silently rots.
 
-An optional terminal dashboard (`dashboard/`) gives you a fast, keyboard-driven way to browse,
-filter, and sort your pipeline by any of the three scores, status, source, or geo-eligibility —
-without leaving the terminal.
+A local web dashboard (`dashboard/`) gives you a fast, visual way to browse, filter, and sort
+your pipeline by any of the three scores, status, source, or geo-eligibility. Run
+`npm run dashboard` and open the printed `localhost` URL — it reads your `data/tracker.md`
+directly, serves only to your machine, and never phones home. Each role shows animated Fit /
+Reality / Trust rings and a pursue / skip / scam verdict; click any card to read its full
+evaluation report. It's a zero-dependency Node server, so there's nothing heavy to install. (If
+your tracker is empty, it shows bundled demo data so you can see the layout.)
 
 ---
 
@@ -189,7 +193,7 @@ without leaving the terminal.
 | Scripts | Node.js for scanning, parsing, and orchestration |
 | Documents | Playwright + HTML templating for ATS-clean PDF output |
 | Data | Markdown tables (tracker), YAML (config), TSV (batch) — all diff-able, all yours |
-| Dashboard | Go (Bubble Tea + Lipgloss) terminal UI |
+| Dashboard | Zero-dependency local Node web server + a hand-built UI (components in the [21st.dev](https://21st.dev) / [UI Verse](https://uiverse.io) aesthetic — gradient-border cards, conic score rings) |
 
 Design principle: **local-first and legible.** Your data is plain text on your machine. No
 account, no cloud lock-in, no CV leaving your disk unless *you* send it.
@@ -217,9 +221,9 @@ account, no cloud lock-in, no CV leaving your disk unless *you* send it.
 - [x] `geo-check` + `comp-reality`
 - [x] `scan` (Greenhouse / Ashby / Lever) — Node scanner + `sources/` config
 - [x] `tailor-cv` + `cover-letter` + PDF render (Playwright)
-- [ ] `proposal` (freelance track)
-- [ ] `story-bank` + `interview-prep`
-- [ ] `track` + terminal dashboard
+- [x] `proposal` (freelance track)
+- [x] `story-bank` + `interview-prep`
+- [x] `track` (pipeline) + local web dashboard (three-score rings, verdicts, report drawer)
 
 ---
 

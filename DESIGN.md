@@ -201,7 +201,11 @@ All plain text, all diffable, all git-friendly (though `data/` and `output/` are
 4. **Scale input** — `scan` for Greenhouse/Ashby/Lever + source configs + batch workers.
 5. **Output** — `tailor-cv`, `cover-letter`, PDF pipeline.
 6. **Freelance + prep** — `proposal`, `story-bank`, `interview-prep`.
-7. **Dashboard** — Go/Bubble Tea TUI over the tracker.
+7. **Dashboard** — a local web dashboard over the tracker. (Originally planned as a Go/Bubble
+   Tea TUI; built instead as a zero-dependency Node web server + browser UI so it could use the
+   richer visual components — gradient-border cards, animated conic score rings — in the
+   [21st.dev](https://21st.dev) / [UI Verse](https://uiverse.io) aesthetic. Still fully local:
+   it reads `data/tracker.md`, serves only to localhost, and never phones home.)
 
 Rationale: value shows up at milestone 3 with zero scraping infrastructure — a user can paste
 jobs and get honest three-score reports immediately. Everything after that is leverage.
