@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>{{TITLE}}</title>
+<style>
+  :root { --ink: #14181f; --muted: #55606e; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Helvetica Neue", Arial, "Segoe UI", system-ui, sans-serif;
+    color: var(--ink);
+    font-size: 11pt;
+    line-height: 1.55;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 32px 24px;
+  }
+  .sender { margin-bottom: 20px; }
+  .sender .name { font-size: 15pt; font-weight: 700; }
+  .sender .contact { color: var(--muted); font-size: 9.5pt; }
+  .meta { color: var(--muted); font-size: 9.5pt; margin-bottom: 18px; }
+  p { margin: 0 0 12px; }
+  .sign-off { margin-top: 18px; }
+  @media print { body { padding: 0; max-width: none; } }
+</style>
+</head>
+<body>
+<!--
+  cover-letter fills the region below:
+    .sender  -> your name + contact
+    .meta    -> date, company, role
+    body paragraphs (3-4): hook, why you fit, why this company, close
+  Keep it human and specific — the skill asks YOU for the genuine details.
+-->
+{{CONTENT}}
+</body>
+</html>

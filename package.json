@@ -9,9 +9,13 @@
     "node": ">=18"
   },
   "scripts": {
-    "scan": "node scripts/scan.mjs"
+    "scan": "node scripts/scan.mjs",
+    "render": "node scripts/render-pdf.mjs"
   },
   "dependencies": {
     "js-yaml": "^4.1.0"
+  },
+  "optionalDependencies": {
+    "playwright": "^1.61.1"
   }
 }

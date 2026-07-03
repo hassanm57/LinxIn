@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>{{TITLE}}</title>
+<style>
+  /* ATS-clean: single column, real text, standard fonts, no layout tables,
+     no images, logical heading order. Looks tidy on screen and in print. */
+  :root { --ink: #14181f; --muted: #55606e; --rule: #d7dce3; --accent: #1f2937; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Helvetica Neue", Arial, "Segoe UI", system-ui, sans-serif;
+    color: var(--ink);
+    font-size: 10.5pt;
+    line-height: 1.42;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-bottom: 14px; }
+  header h1 { font-size: 20pt; margin: 0 0 4px; letter-spacing: 0.2px; }
+  header .contact { color: var(--muted); font-size: 9.5pt; }
+  header .contact a { color: var(--muted); text-decoration: none; }
+  h2 {
+    font-size: 11pt; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--accent); border-bottom: 1px solid var(--rule);
+    padding-bottom: 3px; margin: 18px 0 8px;
+  }
+  h3 { font-size: 10.5pt; margin: 10px 0 2px; }
+  .role-meta { color: var(--muted); font-size: 9.5pt; margin: 0 0 4px; }
+  ul { margin: 4px 0 8px; padding-left: 18px; }
+  li { margin: 2px 0; }
+  p { margin: 4px 0; }
+  .skills p { margin: 2px 0; }
+  a { color: var(--ink); }
+  @media print { body { padding: 0; max-width: none; } a { color: var(--ink); } }
+</style>
+</head>
+<body>
+<!--
+  tailor-cv fills the region below. Keep the structure semantic and ATS-safe:
+    <header> with <h1> name + a .contact line
+    <h2> section titles: Summary, Skills, Experience, Projects, Education, etc.
+    <h3> per role, a .role-meta line (Company · Title · Dates · Location), then <ul> bullets
+  No tables for layout, no columns, no images. Real selectable text only.
+-->
+{{CONTENT}}
+</body>
+</html>

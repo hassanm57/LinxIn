@@ -13,10 +13,12 @@ It **never** applies for you. AI evaluates and drafts; **you** decide and hit su
 > [`DESIGN.md`](./DESIGN.md)) plus a working core: onboarding (`profile`), pipeline intake
 > (`ingest` / `track`), and the full three-score evaluation engine (`evaluate` with `geo-check`,
 > `comp-reality`, `trust-check`), plus a working ATS `scan`er (`scripts/scan.mjs`, live against
-> Greenhouse/Ashby/Lever). That means you can already go from either a pasted listing or a bulk
-> portal scan to an honest pursue/skip report. Next up are the tailoring skills (`tailor-cv`,
-> `cover-letter`) — see the [Roadmap](#roadmap). Nothing here silently pretends to run; if you're
-> here to contribute, you're early — welcome.
+> Greenhouse/Ashby/Lever), and the output layer (`tailor-cv` + `cover-letter` → ATS-clean PDFs
+> via Playwright). That means you can already go end-to-end: from a pasted listing or a bulk
+> portal scan, to an honest pursue/skip report, to a tailored CV and cover letter. Next up are
+> the freelance and prep skills (`proposal`, `story-bank`, `interview-prep`) and the dashboard —
+> see the [Roadmap](#roadmap). Nothing here silently pretends to run; if you're here to
+> contribute, you're early — welcome.
 
 ---
 
@@ -214,7 +216,7 @@ account, no cloud lock-in, no CV leaving your disk unless *you* send it.
 - [x] `trust-check` local-fraud ruleset
 - [x] `geo-check` + `comp-reality`
 - [x] `scan` (Greenhouse / Ashby / Lever) — Node scanner + `sources/` config
-- [ ] `tailor-cv` + `cover-letter` + PDF render
+- [x] `tailor-cv` + `cover-letter` + PDF render (Playwright)
 - [ ] `proposal` (freelance track)
 - [ ] `story-bank` + `interview-prep`
 - [ ] `track` + terminal dashboard
