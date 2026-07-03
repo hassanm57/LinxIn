@@ -1,6 +1,22 @@
-# LinxIn
+<p align="center">
+  <img src="assets/logo.png" alt="LinxIn" width="120" height="120" />
+</p>
 
-**Your AI-run war room for your job hunt!**
+<h1 align="center">LinxIn</h1>
+
+<p align="center"><strong>Your AI-run war room for your job hunt!</strong></p>
+
+<p align="center">
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-1e90d4.svg" /></a>
+  <img alt="Runs locally" src="https://img.shields.io/badge/runs-locally-34d399.svg" />
+  <img alt="PRs welcome" src="https://img.shields.io/badge/PRs-welcome-7c5cff.svg" />
+  <img alt="For everyone, everywhere" src="https://img.shields.io/badge/for-everyone%2C%20everywhere-22d3ee.svg" />
+</p>
+
+<p align="center">
+  <em>Free and open source. Built for job seekers in Pakistan and anywhere in the world —
+  anyone can use it, fork it, and make it their own.</em>
+</p>
 
 LinxIn turns your AI coding CLI (Claude Code, and friends) into a local, private job-search
 operations system. It reads listings, scores them honestly, tells you which ones are real,
@@ -242,9 +258,15 @@ account, no cloud lock-in, no CV leaving your disk unless *you* send it.
 
 ## Contributing
 
-Early days — the most valuable contributions right now are to the **design**: sharpening the
-three-score model, the local-fraud ruleset, geo-eligibility heuristics, and source recipes for
-Pakistani boards. Open an issue with your idea before large changes. See [`DESIGN.md`](./DESIGN.md).
+LinxIn is open source and built for people — contributions are genuinely welcome, and you don't
+need to be an expert. The most valuable help right now is sharpening the **design**: the
+three-score model, the local-fraud ruleset (`trust-check`), geo-eligibility heuristics, and
+source recipes for Pakistani boards. You can also add companies, improve docs, or report rough
+edges.
+
+Start with **[`CONTRIBUTING.md`](./CONTRIBUTING.md)** (and the deeper design context in
+[`DESIGN.md`](./DESIGN.md)). Please open an issue before large changes. Everyone participating is
+expected to follow our **[Code of Conduct](./CODE_OF_CONDUCT.md)**.
 
 ## Credits
 

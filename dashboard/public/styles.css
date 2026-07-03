@@ -54,11 +54,8 @@ header, section, main, footer { position: relative; z-index: 1; }
 .brand { display: flex; align-items: center; gap: 14px; }
 .logo {
   width: 44px; height: 44px; border-radius: 12px;
-  display: grid; place-items: center;
-  font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 18px;
-  color: white;
-  background: linear-gradient(135deg, var(--brand), var(--brand-2));
-  box-shadow: 0 8px 24px -6px rgba(124, 92, 255, 0.6);
+  object-fit: cover; display: block;
+  box-shadow: 0 8px 24px -6px rgba(30, 144, 212, 0.55);
 }
 .topbar h1 { font-family: "Space Grotesk", sans-serif; font-size: 22px; margin: 0; letter-spacing: 0.3px; }
 .topbar .tag { margin: 2px 0 0; color: var(--muted); font-size: 12.5px; }
