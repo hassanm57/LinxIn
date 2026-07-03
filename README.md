@@ -9,10 +9,11 @@ letter or proposal, and preps you for the interview — all on your machine, all
 
 It **never** applies for you. AI evaluates and drafts; **you** decide and hit submit.
 
-> **Status: `v0` — blueprint.** This repo currently ships the design, the spec, and the
-> philosophy (this README + [`DESIGN.md`](./DESIGN.md)). The skills and scripts described below
-> are the plan we're building toward, not yet working code. Nothing here silently pretends to
-> run. If you're here to contribute to the architecture, you're early — welcome.
+> **Status: `v0` — early build.** This repo ships the design and philosophy (this README +
+> [`DESIGN.md`](./DESIGN.md)) plus the first working skills: `profile`, `ingest`, and `track`,
+> with config defaults and CV templates. The evaluation core (`evaluate` / `geo-check` /
+> `comp-reality` / `trust-check`) and the portal `scan` are next — see the [Roadmap](#roadmap).
+> Nothing here silently pretends to run. If you're here to contribute, you're early — welcome.
 
 ---
 
@@ -203,11 +204,12 @@ account, no cloud lock-in, no CV leaving your disk unless *you* send it.
 ## Roadmap
 
 - [x] Design & three-score model (`DESIGN.md`)
-- [ ] `profile` + dual-CV bootstrap
+- [x] Repo scaffold + config defaults (`config/`)
+- [x] `profile` + dual-CV bootstrap (skill + templates)
+- [x] `ingest` (paste-and-parse for local boards) + `track` (pipeline)
 - [ ] `evaluate` (Fit / Reality / Trust)
 - [ ] `trust-check` local-fraud ruleset
 - [ ] `geo-check` + `comp-reality`
-- [ ] `ingest` (paste-and-parse for local boards)
 - [ ] `scan` (Greenhouse / Ashby / Lever)
 - [ ] `tailor-cv` + `cover-letter` + PDF render
 - [ ] `proposal` (freelance track)
