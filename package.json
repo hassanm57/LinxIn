@@ -1,0 +1,17 @@
+{
+  "name": "linxin",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Your AI-run war room for your job hunt.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "scan": "node scripts/scan.mjs"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

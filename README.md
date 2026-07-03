@@ -12,10 +12,11 @@ It **never** applies for you. AI evaluates and drafts; **you** decide and hit su
 > **Status: `v0` — early build.** This repo ships the design and philosophy (this README +
 > [`DESIGN.md`](./DESIGN.md)) plus a working core: onboarding (`profile`), pipeline intake
 > (`ingest` / `track`), and the full three-score evaluation engine (`evaluate` with `geo-check`,
-> `comp-reality`, `trust-check`). That means you can already go from a pasted listing to an
-> honest pursue/skip report. Next up is automated portal `scan` and the tailoring skills — see
-> the [Roadmap](#roadmap). Nothing here silently pretends to run; if you're here to contribute,
-> you're early — welcome.
+> `comp-reality`, `trust-check`), plus a working ATS `scan`er (`scripts/scan.mjs`, live against
+> Greenhouse/Ashby/Lever). That means you can already go from either a pasted listing or a bulk
+> portal scan to an honest pursue/skip report. Next up are the tailoring skills (`tailor-cv`,
+> `cover-letter`) — see the [Roadmap](#roadmap). Nothing here silently pretends to run; if you're
+> here to contribute, you're early — welcome.
 
 ---
 
@@ -212,7 +213,7 @@ account, no cloud lock-in, no CV leaving your disk unless *you* send it.
 - [x] `evaluate` (Fit / Reality / Trust) + report template
 - [x] `trust-check` local-fraud ruleset
 - [x] `geo-check` + `comp-reality`
-- [ ] `scan` (Greenhouse / Ashby / Lever)
+- [x] `scan` (Greenhouse / Ashby / Lever) — Node scanner + `sources/` config
 - [ ] `tailor-cv` + `cover-letter` + PDF render
 - [ ] `proposal` (freelance track)
 - [ ] `story-bank` + `interview-prep`

@@ -1,0 +1,22 @@
+# LinxIn source config — the companies `scan` pulls listings from.
+#
+# Group each company under the ATS it uses. The "token" is the board slug from
+# the company's public careers URL:
+#   Greenhouse -> job-boards.greenhouse.io/<token>   (or boards.greenhouse.io/<token>)
+#   Lever      -> jobs.lever.co/<token>
+#   Ashby      -> jobs.ashbyhq.com/<token>
+#
+# The entries below are ILLUSTRATIVE placeholders to show the shape. Curate this
+# list for the roles YOU want and the companies you'd actually work for. `scan`
+# skips any token that 404s and tells you, so a wrong token won't break a run —
+# but a real, curated list is what makes scanning useful. Prefer remote-friendly
+# employers if you're hunting from Pakistan.
+
+greenhouse:
+  - { company: "Example Co", token: "examplecompany" }
+
+lever:
+  - { company: "Example (Lever)", token: "exampleco" }
+
+ashby:
+  - { company: "Example (Ashby)", token: "exampleco" }
