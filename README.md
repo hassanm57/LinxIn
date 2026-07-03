@@ -10,10 +10,12 @@ letter or proposal, and preps you for the interview — all on your machine, all
 It **never** applies for you. AI evaluates and drafts; **you** decide and hit submit.
 
 > **Status: `v0` — early build.** This repo ships the design and philosophy (this README +
-> [`DESIGN.md`](./DESIGN.md)) plus the first working skills: `profile`, `ingest`, and `track`,
-> with config defaults and CV templates. The evaluation core (`evaluate` / `geo-check` /
-> `comp-reality` / `trust-check`) and the portal `scan` are next — see the [Roadmap](#roadmap).
-> Nothing here silently pretends to run. If you're here to contribute, you're early — welcome.
+> [`DESIGN.md`](./DESIGN.md)) plus a working core: onboarding (`profile`), pipeline intake
+> (`ingest` / `track`), and the full three-score evaluation engine (`evaluate` with `geo-check`,
+> `comp-reality`, `trust-check`). That means you can already go from a pasted listing to an
+> honest pursue/skip report. Next up is automated portal `scan` and the tailoring skills — see
+> the [Roadmap](#roadmap). Nothing here silently pretends to run; if you're here to contribute,
+> you're early — welcome.
 
 ---
 
@@ -207,9 +209,9 @@ account, no cloud lock-in, no CV leaving your disk unless *you* send it.
 - [x] Repo scaffold + config defaults (`config/`)
 - [x] `profile` + dual-CV bootstrap (skill + templates)
 - [x] `ingest` (paste-and-parse for local boards) + `track` (pipeline)
-- [ ] `evaluate` (Fit / Reality / Trust)
-- [ ] `trust-check` local-fraud ruleset
-- [ ] `geo-check` + `comp-reality`
+- [x] `evaluate` (Fit / Reality / Trust) + report template
+- [x] `trust-check` local-fraud ruleset
+- [x] `geo-check` + `comp-reality`
 - [ ] `scan` (Greenhouse / Ashby / Lever)
 - [ ] `tailor-cv` + `cover-letter` + PDF render
 - [ ] `proposal` (freelance track)
