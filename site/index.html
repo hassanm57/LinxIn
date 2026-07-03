@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LinxIn — your AI-run war room for the job hunt</title>
+  <meta name="description" content="Open source, local-first AI job-search system. Runs in your CLI on your machine. Scores every job on Fit, Reality and Trust, flags scams, and tailors your CV and cover letter. Built for Pakistan and remote-anywhere." />
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+  <meta property="og:title" content="LinxIn — your AI-run war room for the job hunt" />
+  <meta property="og:description" content="Open source, local-first AI job search. Three scores: Fit, Reality, Trust. Scam detection. Tailored CVs. Built for Pakistan and remote-anywhere." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <!-- nav -->
+  <header class="nav">
+    <a class="brand" href="/">
+      <img src="/assets/logo.png" alt="" class="brand-mark" />
+      <span class="brand-name">LinxIn</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/docs.html">Docs</a>
+      <a href="#features">Features</a>
+      <a href="#faq">FAQ</a>
+      <a class="nav-gh" href="https://github.com/hassanm57/LinxIn" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+    </nav>
+  </header>
+
+  <!-- hero -->
+  <section class="hero">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">Open source · Local-first · MIT</span>
+      <h1 class="display">
+        Find the jobs worth<br />applying to.
+        <span class="ul">Skip the scams.</span>
+      </h1>
+      <p class="lede">
+        LinxIn is an AI job-search war room that runs on your own machine, inside your AI CLI.
+        It scores every role on <b>Fit</b>, <b>Reality</b> and <b>Trust</b>, flags scams and
+        ghost jobs, then tailors your CV and cover letter. Built for Pakistan and remote-anywhere.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/docs.html">Run it now<span class="cursor"></span></a>
+        <a class="btn btn-ghost" href="https://github.com/hassanm57/LinxIn" target="_blank" rel="noopener">View source</a>
+      </div>
+      <div class="pills">
+        <span class="pill">No cloud</span><span class="pill">No account</span>
+        <span class="pill">No telemetry</span><span class="pill">Free forever</span>
+      </div>
+    </div>
+
+    <!-- terminal mock — interactive: pick the AI CLI you already use -->
+    <div class="term reveal" style="--d:120ms">
+      <div class="term-bar"><i></i><i></i><i></i><span class="term-title">linxin — evaluate</span></div>
+      <div class="term-tabs" role="tablist" aria-label="Choose your AI CLI">
+        <button class="term-tab is-active" role="tab" aria-selected="true" data-cli="claude">Claude Code</button>
+        <button class="term-tab" role="tab" aria-selected="false" data-cli="gemini">Gemini CLI</button>
+        <button class="term-tab" role="tab" aria-selected="false" data-cli="codex">Codex</button>
+        <button class="term-tab" role="tab" aria-selected="false" data-cli="qwen">Qwen Code</button>
+        <button class="term-tab" role="tab" aria-selected="false" data-cli="opencode">OpenCode</button>
+        <button class="term-tab" role="tab" aria-selected="false" data-cli="copilot">Copilot CLI</button>
+      </div>
+      <pre class="term-body"><code><span class="term-launch-line"><span class="c-dim">$</span> <span class="c-cmd" id="term-launch">claude</span></span>
+<span class="c-dim">›</span> evaluate the newest jobs in my pipeline
+
+<span class="c-dim">running geo-check · comp-reality · trust-check …</span>
+
+  <span class="c-key">Fit</span>      <span class="bar"><span class="fill f-ok" style="--w:73%"></span></span> <span class="c-num">73</span>
+  <span class="c-key">Reality</span>  <span class="bar"><span class="fill f-ok" style="--w:84%"></span></span> <span class="c-num">84</span>
+  <span class="c-key">Trust</span>    <span class="bar"><span class="fill f-ok" style="--w:92%"></span></span> <span class="c-num">92</span>
+
+<span class="c-good">✓ VERDICT: PURSUE</span> — legit, ideal geo-fit, strong stack.
+  <span class="c-dim">lead with shipped work, not years.</span><span class="blink">▋</span></code></pre>
+    </div>
+  </section>
+
+  <!-- badge strip -->
+  <section class="strip">
+    <p class="strip-label">Runs inside the AI CLI you already use</p>
+    <div class="strip-row">
+      <span>Claude Code</span><span>Codex</span><span>OpenCode</span><span>Gemini CLI</span><span>Qwen</span><span>Copilot</span>
+    </div>
+  </section>
+
+  <!-- ethos quote -->
+  <section class="quote reveal">
+    <hr class="rule" />
+    <p class="display quote-text">
+      Companies use AI to screen you out.<br />
+      LinxIn helps you screen <span class="ul ul-brand">them, and the scams,</span> back.
+    </p>
+    <p class="quote-by">Built for job seekers in Pakistan and anywhere the deck is stacked.</p>
+  </section>
+
+  <!-- what is -->
+  <section class="whatis">
+    <h2 class="section-h">What is <span class="grad">LinxIn</span>?</h2>
+    <div class="card term-card reveal">
+      <div class="term-bar"><i></i><i></i><i></i><span class="term-title mono">&gt;_ /linxin --describe</span></div>
+      <div class="term-card-body">
+        <p>
+          LinxIn is an <span class="ul ul-brand">open-source</span> AI job-search system that runs
+          locally on your machine, inside any AI coding CLI. You paste a listing or scan company
+          portals, and it evaluates each role on a three-part model, Fit, Reality and Trust, so
+          you only pursue jobs that are a genuine match, that you can actually be hired for from
+          where you live, and that are real rather than a scam. For anything worth pursuing it
+          tailors your CV, drafts a cover letter, writes freelance proposals, and preps you for
+          the interview. Everything stays on your machine: <b class="grad">no cloud</b>,
+          <b class="grad">no telemetry</b>, <b class="grad">no account</b>. MIT-licensed and free
+          forever; the only thing you pay for is the AI CLI you already use.
+        </p>
+        <p class="mono note">// local-first · human-in-the-loop · never auto-applies</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- three scores -->
+  <section class="scores" id="how">
+    <h2 class="section-h">Three scores, <span class="grad">not one</span>.</h2>
+    <p class="section-sub">Most tools ask “is this a good job?” LinxIn asks the three questions that actually decide it. A role has to clear all three.</p>
+    <div class="score-grid">
+      <article class="card score-card reveal">
+        <div class="ring" style="--val:73;--col:var(--brand)"><span>Fit</span></div>
+        <h3>Fit</h3>
+        <p>Should you even want this? Skills, seniority, growth, and how the pay matches your goals.</p>
+      </article>
+      <article class="card score-card reveal" style="--d:100ms">
+        <div class="ring" style="--val:84;--col:var(--brand-3)"><span>Reality</span></div>
+        <h3>Reality</h3>
+        <p>Can a you-in-Pakistan actually get hired and live on it? Geo-eligibility, timezone, how you get paid, and what the salary is really worth in rupees.</p>
+      </article>
+      <article class="card score-card reveal" style="--d:200ms">
+        <div class="ring" style="--val:92;--col:var(--good)"><span>Trust</span></div>
+        <h3>Trust</h3>
+        <p>Is it legit, or a scam or ghost job? Tuned for local fraud: upfront fees, WhatsApp recruiters, CNIC-before-offer.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- product shot -->
+  <section class="showcase reveal">
+    <div class="showcase-inner">
+      <h2 class="section-h">Your whole pipeline, <span class="grad">at a glance</span>.</h2>
+      <p class="section-sub">A local dashboard shows every role with its Fit / Reality / Trust rings and a pursue, skip or scam verdict. Click any card to read the full report.</p>
+      <div class="frame"><img src="/assets/dashboard.png" alt="LinxIn dashboard showing the job pipeline with Fit, Reality and Trust score rings" loading="lazy" /></div>
+    </div>
+  </section>
+
+  <!-- features -->
+  <section class="features" id="features">
+    <h2 class="section-h">From a hundred listings to a <span class="grad">few worth it</span>.</h2>
+    <div class="feat-grid">
+      <article class="card feat reveal">
+        <h3>Paste or scan</h3>
+        <p>Paste any listing (Rozee, LinkedIn, a WhatsApp forward) or scan Greenhouse, Ashby and Lever portals. Both land in one pipeline.</p>
+      </article>
+      <article class="card feat reveal" style="--d:80ms">
+        <h3>Scam &amp; ghost-job detection</h3>
+        <p>A trust check tuned for the tricks that target job seekers here, so you’re warned before you hand over anything.</p>
+      </article>
+      <article class="card feat reveal" style="--d:160ms">
+        <h3>Tailored CVs &amp; cover letters</h3>
+        <p>ATS-clean PDFs tailored per role, plus freelance proposals for Upwork and Fiverr. It never invents experience.</p>
+      </article>
+      <article class="card feat reveal">
+        <h3>Runs on any AI CLI</h3>
+        <p>Claude Code, Codex, OpenCode, Gemini CLI, Qwen, Copilot. Plain markdown skills, no lock-in.</p>
+      </article>
+      <article class="card feat reveal" style="--d:80ms">
+        <h3>Interview prep</h3>
+        <p>Likely questions, company research, and your own best stories mapped to what they’ll ask.</p>
+      </article>
+      <article class="card feat reveal" style="--d:160ms">
+        <h3>Your data stays yours</h3>
+        <p>Everything runs locally. Your CV and pipeline never leave your machine, and nothing is uploaded.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- open source -->
+  <section class="oss reveal">
+    <h2 class="display grad-text"><a href="https://github.com/hassanm57/LinxIn" target="_blank" rel="noopener">100% open source.</a></h2>
+    <p class="oss-sub">MIT-licensed and free forever. Built for people, and shaped by them. The scam-detection rules especially get better with more eyes from people who’ve seen the tricks firsthand.</p>
+    <a class="btn btn-primary" href="https://github.com/hassanm57/LinxIn" target="_blank" rel="noopener">Contribute on GitHub</a>
+  </section>
+
+  <!-- faq -->
+  <section class="faq" id="faq">
+    <h2 class="section-h">Frequently asked</h2>
+    <dl class="faq-list">
+      <div class="faq-item"><dt>How does LinxIn score a job?</dt>
+        <dd>Every role gets three independent 0–100 scores. Fit (skills, seniority, comp, growth), Reality (geo-eligibility, timezone, payment path, pay in real purchasing power), and Trust (legitimacy and scam signals). You set thresholds; a job is worth pursuing only if it clears all three. Nothing is guessed, unknowns stay unknown.</dd></div>
+      <div class="faq-item"><dt>Is it really free?</dt>
+        <dd>Yes. LinxIn is MIT-licensed, open source, and free forever. No paid tier, no account, no telemetry. The only cost is whichever AI CLI you already pay for.</dd></div>
+      <div class="faq-item"><dt>Is my data private?</dt>
+        <dd>Completely. Everything runs on your machine and reads local plain-text files. Your CV, profile and pipeline never leave your computer, and the dashboard only serves to localhost.</dd></div>
+      <div class="faq-item"><dt>Does it apply to jobs for me?</dt>
+        <dd>No. LinxIn is a co-pilot, not an autopilot. It evaluates and drafts; you decide and submit. There is no bulk auto-apply.</dd></div>
+      <div class="faq-item"><dt>Why “built for Pakistan and remote-anywhere”?</dt>
+        <dd>Because hunting from the Global South has different hard problems: “remote” jobs that are secretly geo-locked, scams on local boards, and salaries that need translating into real purchasing power. LinxIn’s Reality and Trust scores are built around exactly those.</dd></div>
+      <div class="faq-item"><dt>Who built it?</dt>
+        <dd>LinxIn was built by <a href="https://github.com/hassanm57" target="_blank" rel="noopener">Hassan Mansoor</a>, inspired by the local-first spirit of career-ops, and re-centered on the realities of job hunting from Pakistan and the wider Global South.</dd></div>
+    </dl>
+  </section>
+
+  <!-- final cta -->
+  <section class="final reveal">
+    <p class="display">Ready to filter offers,<br />instead of getting filtered?</p>
+    <a class="btn btn-primary btn-lg" href="/docs.html">Your turn<span class="cursor"></span></a>
+  </section>
+
+  <footer class="foot">
+    <div class="foot-in">
+      <div class="foot-brand">
+        <img src="/assets/logo.png" alt="" />
+        <span>Built by <a href="https://github.com/hassanm57" target="_blank" rel="noopener">Hassan Mansoor</a> · Open source · MIT</span>
+      </div>
+      <nav class="foot-links">
+        <a href="/docs.html">Docs</a>
+        <a href="https://github.com/hassanm57/LinxIn" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/hassan-mansoor1569" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

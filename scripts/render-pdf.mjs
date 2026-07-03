@@ -3,10 +3,11 @@
 // cover-letter.html) into an ATS-clean PDF via Playwright/Chromium.
 //
 // Usage:
-//   node scripts/render-pdf.mjs <input.html> [output.pdf] [--letter]
+//   node scripts/render-pdf.mjs <input.html> [output.pdf] [--letter] [--margin <css>]
 //
-// Defaults to A4; pass --letter for US Letter. Output defaults to the input
-// path with a .pdf extension.
+// Defaults to A4 with 14mm margins. Pass --letter for US Letter, and
+// --margin (e.g. --margin 9mm) to tighten/loosen page margins — handy for
+// fitting a CV onto a single page. Output defaults to the input path with .pdf.
 //
 // Playwright is an optional dependency (it downloads a browser). If it's not
 // installed, this prints exactly how to add it and exits — it never pretends
@@ -17,12 +18,19 @@ import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
 const argv = process.argv.slice(2);
-const flags = new Set(argv.filter((a) => a.startsWith("--")));
-const positional = argv.filter((a) => !a.startsWith("--"));
+// pull "--margin <value>" out first, then treat remaining --flags as booleans
+let margin = "14mm";
+const rest = [];
+for (let i = 0; i < argv.length; i++) {
+  if (argv[i] === "--margin") { margin = argv[++i] ?? margin; continue; }
+  rest.push(argv[i]);
+}
+const flags = new Set(rest.filter((a) => a.startsWith("--")));
+const positional = rest.filter((a) => !a.startsWith("--"));
 const [input, outputArg] = positional;
 
 if (!input) {
-  console.error("usage: node scripts/render-pdf.mjs <input.html> [output.pdf] [--letter]");
+  console.error("usage: node scripts/render-pdf.mjs <input.html> [output.pdf] [--letter] [--margin <css>]");
   process.exit(1);
 }
 
@@ -56,9 +64,9 @@ try {
     path: output,
     format,
     printBackground: true,
-    margin: { top: "14mm", bottom: "14mm", left: "14mm", right: "14mm" },
+    margin: { top: margin, bottom: margin, left: margin, right: margin },
   });
-  console.error(`PDF written → ${output} (${format})`);
+  console.error(`PDF written → ${output} (${format}, ${margin} margins)`);
 } finally {
   await browser.close();
 }

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LinxIn — Docs</title>
+  <meta name="description" content="Get started with LinxIn: install, the three-score model, the skills, and privacy." />
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .docs { max-width: 1080px; margin: 0 auto; padding: 40px 24px 100px; display: grid; grid-template-columns: 200px 1fr; gap: 48px; }
+    @media (max-width: 800px) { .docs { grid-template-columns: 1fr; gap: 24px; } .doc-nav { position: static !important; } }
+    .doc-nav { position: sticky; top: 80px; align-self: start; display: flex; flex-direction: column; gap: 4px; }
+    .doc-nav a { color: var(--muted); font-size: 14.5px; padding: 6px 10px; border-radius: 8px; transition: background .15s, color .15s; }
+    .doc-nav a:hover { color: var(--ink); background: var(--surface); }
+    .doc-body h1 { font-family: "Space Grotesk", sans-serif; font-size: 34px; letter-spacing: -0.02em; margin: 0 0 8px; }
+    .doc-body .sub { color: var(--muted); margin: 0 0 36px; }
+    .doc-body h2 { font-family: "Space Grotesk", sans-serif; font-size: 22px; margin: 42px 0 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+    .doc-body h2:first-of-type { border-top: none; padding-top: 0; }
+    .doc-body p, .doc-body li { color: #cdd5e6; }
+    .doc-body ul { padding-left: 20px; }
+    .doc-body li { margin: 5px 0; }
+    .doc-body a { color: var(--brand-3); }
+    pre.code { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px;
+      font-family: ui-monospace, Menlo, monospace; font-size: 13.5px; color: #d6dcea; overflow-x: auto; }
+    pre.code .c { color: var(--faint); }
+    table.sk { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 14px; }
+    table.sk td { border: 1px solid var(--line); padding: 8px 12px; vertical-align: top; }
+    table.sk td:first-child { color: var(--brand-3); font-family: ui-monospace, Menlo, monospace; white-space: nowrap; }
+  </style>
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <header class="nav">
+    <a class="brand" href="/"><img src="/assets/logo.png" alt="" class="brand-mark" /><span class="brand-name">LinxIn</span></a>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="#start">Quick start</a>
+      <a class="nav-gh" href="https://github.com/hassanm57/LinxIn" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 6 0c2.295-1.552 3.3-1.23 3.3-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+    </nav>
+  </header>
+
+  <div class="docs">
+    <nav class="doc-nav">
+      <a href="#what">What is LinxIn</a>
+      <a href="#start">Quick start</a>
+      <a href="#scores">The three scores</a>
+      <a href="#skills">The skills</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#contribute">Contribute</a>
+    </nav>
+
+    <main class="doc-body">
+      <h1>LinxIn docs</h1>
+      <p class="sub">Your AI-run war room for the job hunt. Local-first, human-in-the-loop, built for Pakistan and remote-anywhere.</p>
+
+      <h2 id="what">What is LinxIn</h2>
+      <p>LinxIn turns your AI coding CLI (Claude Code and friends) into a private job-search system that runs entirely on your machine. It reads listings, scores them on <b>Fit</b>, <b>Reality</b> and <b>Trust</b>, flags scams and ghost jobs, and tailors your CV, cover letter and freelance proposals. It never applies for you: AI evaluates and drafts, you decide and submit.</p>
+
+      <h2 id="start">Quick start</h2>
+      <p>LinxIn is a set of skills plus a few small Node scripts. Clone it, install once, and drive it from your AI CLI.</p>
+      <pre class="code"><span class="c"># 1. get it</span>
+git clone https://github.com/hassanm57/LinxIn
+cd LinxIn
+npm install
+
+<span class="c"># 2. onboard (in your AI CLI, e.g. Claude Code)</span>
+"set up my profile"
+
+<span class="c"># 3. bring in jobs</span>
+"ingest this listing: &lt;paste&gt;"      <span class="c"># any board</span>
+npm run scan -- --keywords "backend" --remote-only   <span class="c"># ATS portals</span>
+
+<span class="c"># 4. evaluate → get the three scores + a report</span>
+"evaluate the new jobs"
+
+<span class="c"># 5. for anything worth it</span>
+"tailor my CV and draft a cover letter for &lt;job&gt;"
+
+<span class="c"># 6. browse it all</span>
+npm run dashboard        <span class="c"># http://localhost:4173</span></pre>
+
+      <h2 id="scores">The three-score model</h2>
+      <p>Every job gets three independent 0–100 scores. A role is worth pursuing only if it clears your thresholds on all three.</p>
+      <ul>
+        <li><b>Fit</b> — should you want it? Skills and stack match, seniority, mission, growth, company health, and comp vs. your target.</li>
+        <li><b>Reality</b> — can a you-in-Pakistan land it and live on it? Geo-eligibility (the near-veto), timezone overlap, payment feasibility (Payoneer / Wise / Deel / EOR), and pay in PKR purchasing power.</li>
+        <li><b>Trust</b> — is it legit? Verifiable company and recruiter, minus deductions for scam and ghost-job signals: upfront fees, WhatsApp-only recruiters, CNIC/bank asks before an offer, MLM framing, reposted-forever listings.</li>
+      </ul>
+      <p>Defaults: Fit ≥ 65, Reality ≥ 50, Trust ≥ 70. A Trust score below 40 is quarantined as a likely scam.</p>
+
+      <h2 id="skills">The skills</h2>
+      <table class="sk">
+        <tr><td>profile</td><td>Onboarding + your two CV bases (international, PII-stripped, and local).</td></tr>
+        <tr><td>ingest</td><td>Paste any listing → a clean structured record in your pipeline.</td></tr>
+        <tr><td>scan</td><td>Pull fresh listings from Greenhouse / Ashby / Lever portals.</td></tr>
+        <tr><td>evaluate</td><td>The orchestrator: runs the three scores and writes a decision report.</td></tr>
+        <tr><td>geo-check</td><td>Are you actually eligible to be hired from Pakistan?</td></tr>
+        <tr><td>comp-reality</td><td>What the pay is really worth in PKR, and how you'd get paid.</td></tr>
+        <tr><td>trust-check</td><td>Scam and ghost-job detection, tuned for local fraud.</td></tr>
+        <tr><td>tailor-cv</td><td>ATS-clean CV tailored to one role → PDF.</td></tr>
+        <tr><td>cover-letter</td><td>Researched letter that asks you for the human bits → PDF.</td></tr>
+        <tr><td>proposal</td><td>Freelance track for Upwork / Fiverr / Toptal.</td></tr>
+        <tr><td>interview-prep</td><td>Likely questions, company research, your best stories.</td></tr>
+        <tr><td>story-bank</td><td>Reusable STAR + Reflection stories the writing skills draw from.</td></tr>
+        <tr><td>track</td><td>Keeps the pipeline clean: dedup, status, integrity.</td></tr>
+      </table>
+
+      <h2 id="privacy">Privacy</h2>
+      <p>Everything is local. Your profile, CVs and pipeline are plain-text files on your machine and are gitignored by default. The dashboard binds to <span class="mono">127.0.0.1</span> and never phones home. Nothing leaves your computer except the applications you choose to submit.</p>
+
+      <h2 id="contribute">Contribute</h2>
+      <p>LinxIn is open source (MIT) and built for people. The most valuable help right now is sharpening the scam-detection rules, geo-eligibility heuristics, and source recipes for local boards. Start with the repo and its <a href="https://github.com/hassanm57/LinxIn/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">CONTRIBUTING guide</a>.</p>
+      <p><a href="https://github.com/hassanm57/LinxIn" target="_blank" rel="noopener">→ github.com/hassanm57/LinxIn</a></p>
+    </main>
+  </div>
+
+  <footer class="foot">
+    <div class="foot-in">
+      <div class="foot-brand"><img src="/assets/logo.png" alt="" /><span>Built by <a href="https://github.com/hassanm57" target="_blank" rel="noopener">Hassan Mansoor</a> · Open source · MIT</span></div>
+      <nav class="foot-links"><a href="/">Home</a><a href="https://github.com/hassanm57/LinxIn" target="_blank" rel="noopener">GitHub</a></nav>
+    </div>
+  </footer>
+</body>
+</html>
