@@ -20,6 +20,9 @@ node_modules/
 npm-debug.log*
 .npm
 
+# Vercel project link (site/ has its own .vercel/ too)
+.vercel
+
 # Env & secrets
 .env
 .env.*

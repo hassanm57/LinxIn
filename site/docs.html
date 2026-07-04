@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LinxIn — Docs</title>
-  <meta name="description" content="Get started with LinxIn: install, the three-score model, the skills, and privacy." />
+  <meta name="description" content="Get started with LinxIn: install, the three-score model, the skills, architecture, configuration, and privacy." />
   <link rel="icon" type="image/png" href="/assets/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,23 +13,37 @@
   <style>
     .docs { max-width: 1080px; margin: 0 auto; padding: 40px 24px 100px; display: grid; grid-template-columns: 200px 1fr; gap: 48px; }
     @media (max-width: 800px) { .docs { grid-template-columns: 1fr; gap: 24px; } .doc-nav { position: static !important; } }
-    .doc-nav { position: sticky; top: 80px; align-self: start; display: flex; flex-direction: column; gap: 4px; }
-    .doc-nav a { color: var(--muted); font-size: 14.5px; padding: 6px 10px; border-radius: 8px; transition: background .15s, color .15s; }
+    .doc-nav { position: sticky; top: 80px; align-self: start; display: flex; flex-direction: column; gap: 2px; max-height: calc(100vh - 100px); overflow-y: auto; }
+    .doc-nav a { color: var(--muted); font-size: 14px; padding: 6px 10px; border-radius: 8px; }
     .doc-nav a:hover { color: var(--ink); background: var(--surface); }
+    .doc-nav .doc-nav-label { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); padding: 14px 10px 4px; }
+    .doc-nav .doc-nav-label:first-child { padding-top: 2px; }
     .doc-body h1 { font-family: "Space Grotesk", sans-serif; font-size: 34px; letter-spacing: -0.02em; margin: 0 0 8px; }
     .doc-body .sub { color: var(--muted); margin: 0 0 36px; }
-    .doc-body h2 { font-family: "Space Grotesk", sans-serif; font-size: 22px; margin: 42px 0 12px; padding-top: 12px; border-top: 1px solid var(--line); }
-    .doc-body h2:first-of-type { border-top: none; padding-top: 0; }
+    .doc-body h2 { font-family: "Space Grotesk", sans-serif; font-size: 22px; margin: 0 0 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+    .doc-section:first-of-type h2 { border-top: none; padding-top: 0; }
+    .doc-body h3 { font-family: "Space Grotesk", sans-serif; font-size: 16px; margin: 20px 0 8px; }
     .doc-body p, .doc-body li { color: #cdd5e6; }
     .doc-body ul { padding-left: 20px; }
     .doc-body li { margin: 5px 0; }
     .doc-body a { color: var(--brand-3); }
+    .doc-section { margin-bottom: 44px; }
     pre.code { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px;
-      font-family: ui-monospace, Menlo, monospace; font-size: 13.5px; color: #d6dcea; overflow-x: auto; }
+      font-family: ui-monospace, Menlo, monospace; font-size: 13.5px; color: #d6dcea; overflow-x: auto;
+      transition: border-color .3s var(--ease); }
+    pre.code:hover { border-color: rgba(255,255,255,.16); }
     pre.code .c { color: var(--faint); }
-    table.sk { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 14px; }
-    table.sk td { border: 1px solid var(--line); padding: 8px 12px; vertical-align: top; }
-    table.sk td:first-child { color: var(--brand-3); font-family: ui-monospace, Menlo, monospace; white-space: nowrap; }
+    table.sk, table.dirs { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 14px; }
+    table.sk td, table.dirs td { border: 1px solid var(--line); padding: 8px 12px; vertical-align: top; }
+    table.sk td:first-child, table.dirs td:first-child { color: var(--brand-3); font-family: ui-monospace, Menlo, monospace; white-space: nowrap; }
+    .doc-callout {
+      border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin: 14px 0;
+      background: linear-gradient(180deg, var(--surface-2), var(--surface)); font-size: 14px; color: #cdd5e6;
+    }
+    .doc-callout b { color: var(--ink); }
+    .status-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 8px; margin: 10px 0; }
+    .status-item { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: #cdd5e6; }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--good); flex: none; box-shadow: 0 0 8px rgba(52,211,153,.6); }
   </style>
 </head>
 <body>
@@ -52,7 +66,15 @@
       <a href="#start">Quick start</a>
       <a href="#scores">The three scores</a>
       <a href="#skills">The skills</a>
+      <span class="doc-nav-label">Under the hood</span>
+      <a href="#architecture">Architecture</a>
+      <a href="#configuration">Configuration</a>
+      <a href="#scanning">Scanning sources</a>
+      <a href="#dashboard">The dashboard</a>
+      <span class="doc-nav-label">Reference</span>
       <a href="#privacy">Privacy</a>
+      <a href="#troubleshooting">Troubleshooting</a>
+      <a href="#status">What's built</a>
       <a href="#contribute">Contribute</a>
     </nav>
 
@@ -60,12 +82,15 @@
       <h1>LinxIn docs</h1>
       <p class="sub">Your AI-run war room for the job hunt. Local-first, human-in-the-loop, built for Pakistan and remote-anywhere.</p>
 
-      <h2 id="what">What is LinxIn</h2>
-      <p>LinxIn turns your AI coding CLI (Claude Code and friends) into a private job-search system that runs entirely on your machine. It reads listings, scores them on <b>Fit</b>, <b>Reality</b> and <b>Trust</b>, flags scams and ghost jobs, and tailors your CV, cover letter and freelance proposals. It never applies for you: AI evaluates and drafts, you decide and submit.</p>
+      <section class="doc-section" id="what">
+        <h2>What is LinxIn</h2>
+        <p>LinxIn turns your AI coding CLI (Claude Code and friends) into a private job-search system that runs entirely on your machine. It reads listings, scores them on <b>Fit</b>, <b>Reality</b> and <b>Trust</b>, flags scams and ghost jobs, and tailors your CV, cover letter and freelance proposals. It never applies for you: AI evaluates and drafts, you decide and submit.</p>
+      </section>
 
-      <h2 id="start">Quick start</h2>
-      <p>LinxIn is a set of skills plus a few small Node scripts. Clone it, install once, and drive it from your AI CLI.</p>
-      <pre class="code"><span class="c"># 1. get it</span>
+      <section class="doc-section" id="start">
+        <h2>Quick start</h2>
+        <p>LinxIn is a set of skills plus a few small Node scripts. Clone it, install once, and drive it from your AI CLI.</p>
+        <pre class="code"><span class="c"># 1. get it</span>
 git clone https://github.com/hassanm57/LinxIn
 cd LinxIn
 npm install
@@ -85,39 +110,115 @@ npm run scan -- --keywords "backend" --remote-only   <span class="c"># ATS porta
 
 <span class="c"># 6. browse it all</span>
 npm run dashboard        <span class="c"># http://localhost:4173</span></pre>
+        <div class="doc-callout">Works the same in Claude Code, Codex, OpenCode, Gemini CLI, Qwen, or Copilot CLI — the skills are plain markdown, so the CLI you launch is the only thing that changes.</div>
+      </section>
 
-      <h2 id="scores">The three-score model</h2>
-      <p>Every job gets three independent 0–100 scores. A role is worth pursuing only if it clears your thresholds on all three.</p>
-      <ul>
-        <li><b>Fit</b> — should you want it? Skills and stack match, seniority, mission, growth, company health, and comp vs. your target.</li>
-        <li><b>Reality</b> — can a you-in-Pakistan land it and live on it? Geo-eligibility (the near-veto), timezone overlap, payment feasibility (Payoneer / Wise / Deel / EOR), and pay in PKR purchasing power.</li>
-        <li><b>Trust</b> — is it legit? Verifiable company and recruiter, minus deductions for scam and ghost-job signals: upfront fees, WhatsApp-only recruiters, CNIC/bank asks before an offer, MLM framing, reposted-forever listings.</li>
-      </ul>
-      <p>Defaults: Fit ≥ 65, Reality ≥ 50, Trust ≥ 70. A Trust score below 40 is quarantined as a likely scam.</p>
+      <section class="doc-section" id="scores">
+        <h2>The three-score model</h2>
+        <p>Every job gets three independent 0–100 scores. A role is worth pursuing only if it clears your thresholds on all three.</p>
+        <ul>
+          <li><b>Fit</b> — should you want it? Skills and stack match, seniority, mission, growth, company health, and comp vs. your target.</li>
+          <li><b>Reality</b> — can a you-in-Pakistan land it and live on it? Geo-eligibility (the near-veto), timezone overlap, payment feasibility (Payoneer / Wise / Deel / EOR), and pay in PKR purchasing power.</li>
+          <li><b>Trust</b> — is it legit? Verifiable company and recruiter, minus deductions for scam and ghost-job signals: upfront fees, WhatsApp-only recruiters, CNIC/bank asks before an offer, MLM framing, reposted-forever listings.</li>
+        </ul>
+        <p>Defaults: Fit ≥ 65, Reality ≥ 50, Trust ≥ 70. A Trust score below 40 is quarantined as a likely scam. Every threshold and weight is yours to tune — see <a href="#configuration">Configuration</a>.</p>
+      </section>
 
-      <h2 id="skills">The skills</h2>
-      <table class="sk">
-        <tr><td>profile</td><td>Onboarding + your two CV bases (international, PII-stripped, and local).</td></tr>
-        <tr><td>ingest</td><td>Paste any listing → a clean structured record in your pipeline.</td></tr>
-        <tr><td>scan</td><td>Pull fresh listings from Greenhouse / Ashby / Lever portals.</td></tr>
-        <tr><td>evaluate</td><td>The orchestrator: runs the three scores and writes a decision report.</td></tr>
-        <tr><td>geo-check</td><td>Are you actually eligible to be hired from Pakistan?</td></tr>
-        <tr><td>comp-reality</td><td>What the pay is really worth in PKR, and how you'd get paid.</td></tr>
-        <tr><td>trust-check</td><td>Scam and ghost-job detection, tuned for local fraud.</td></tr>
-        <tr><td>tailor-cv</td><td>ATS-clean CV tailored to one role → PDF.</td></tr>
-        <tr><td>cover-letter</td><td>Researched letter that asks you for the human bits → PDF.</td></tr>
-        <tr><td>proposal</td><td>Freelance track for Upwork / Fiverr / Toptal.</td></tr>
-        <tr><td>interview-prep</td><td>Likely questions, company research, your best stories.</td></tr>
-        <tr><td>story-bank</td><td>Reusable STAR + Reflection stories the writing skills draw from.</td></tr>
-        <tr><td>track</td><td>Keeps the pipeline clean: dedup, status, integrity.</td></tr>
-      </table>
+      <section class="doc-section" id="skills">
+        <h2>The skills</h2>
+        <p>Thirteen focused skills, each a plain-markdown instruction set your AI CLI reads. Intake and writing skills feed the orchestrator; the orchestrator feeds the tracker.</p>
+        <table class="sk">
+          <tr><td>profile</td><td>Onboarding + your two CV bases (international, PII-stripped, and local).</td></tr>
+          <tr><td>ingest</td><td>Paste any listing → a clean structured record in your pipeline.</td></tr>
+          <tr><td>scan</td><td>Pull fresh listings from Greenhouse / Ashby / Lever portals.</td></tr>
+          <tr><td>evaluate</td><td>The orchestrator: runs the three scores and writes a decision report.</td></tr>
+          <tr><td>geo-check</td><td>Are you actually eligible to be hired from Pakistan?</td></tr>
+          <tr><td>comp-reality</td><td>What the pay is really worth in PKR, and how you'd get paid.</td></tr>
+          <tr><td>trust-check</td><td>Scam and ghost-job detection, tuned for local fraud.</td></tr>
+          <tr><td>tailor-cv</td><td>ATS-clean CV tailored to one role → PDF.</td></tr>
+          <tr><td>cover-letter</td><td>Researched letter that asks you for the human bits → PDF.</td></tr>
+          <tr><td>proposal</td><td>Freelance track for Upwork / Fiverr / Toptal, with off-platform scam checks.</td></tr>
+          <tr><td>interview-prep</td><td>Likely questions, company research, your best stories.</td></tr>
+          <tr><td>story-bank</td><td>Reusable STAR + Reflection stories the writing skills draw from.</td></tr>
+          <tr><td>track</td><td>Keeps the pipeline clean: dedup, status, integrity.</td></tr>
+        </table>
+      </section>
 
-      <h2 id="privacy">Privacy</h2>
-      <p>Everything is local. Your profile, CVs and pipeline are plain-text files on your machine and are gitignored by default. The dashboard binds to <span class="mono">127.0.0.1</span> and never phones home. Nothing leaves your computer except the applications you choose to submit.</p>
+      <section class="doc-section" id="architecture">
+        <h2>Architecture</h2>
+        <p>LinxIn keeps a strict boundary between judgment and mechanics. Anything that must be exact — fetching a job board, rendering a PDF, parsing an id — lives in a Node script. Anything that requires judgment — scoring, drafting, deciding — lives in a skill: a plain-markdown instruction set your AI CLI reads. That split keeps the AI out of the business of ever inventing a salary or a job id.</p>
+        <table class="dirs">
+          <tr><td>skills/</td><td>The 13 markdown skills listed above.</td></tr>
+          <tr><td>scripts/</td><td>Deterministic Node tools — <code>scan.mjs</code> (ATS fetch), <code>render-pdf.mjs</code> (Playwright), <code>lib/ats.mjs</code> (Greenhouse/Ashby/Lever adapters).</td></tr>
+          <tr><td>config/</td><td><code>settings.yaml</code> (thresholds, locale, comp targets, FX) and <code>weights.yaml</code> (scoring weights).</td></tr>
+          <tr><td>profile/</td><td>Your <code>profile.md</code>, dual CV bases, and <code>stories.md</code>. Gitignored.</td></tr>
+          <tr><td>data/</td><td><code>tracker.md</code> (the pipeline) and <code>reports/</code> (full evaluation write-ups). Gitignored.</td></tr>
+          <tr><td>sources/</td><td><code>companies.yaml</code> — the ATS boards <code>scan</code> pulls from, plus a Pakistan reference list.</td></tr>
+          <tr><td>templates/</td><td>HTML templates for the CV, cover letter, and evaluation report.</td></tr>
+          <tr><td>output/</td><td>Generated PDFs. Gitignored.</td></tr>
+          <tr><td>dashboard/</td><td>The local web dashboard — a small Node server plus vanilla HTML/CSS/JS.</td></tr>
+        </table>
+      </section>
 
-      <h2 id="contribute">Contribute</h2>
-      <p>LinxIn is open source (MIT) and built for people. The most valuable help right now is sharpening the scam-detection rules, geo-eligibility heuristics, and source recipes for local boards. Start with the repo and its <a href="https://github.com/hassanm57/LinxIn/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">CONTRIBUTING guide</a>.</p>
-      <p><a href="https://github.com/hassanm57/LinxIn" target="_blank" rel="noopener">→ github.com/hassanm57/LinxIn</a></p>
+      <section class="doc-section" id="configuration">
+        <h2>Configuration</h2>
+        <p>Two files under <code>config/</code> tune how LinxIn judges a job — nothing about scoring is hardcoded.</p>
+        <ul>
+          <li><code>settings.yaml</code> — your timezone, cost-of-living baseline, comp targets, FX rate, and the Fit/Reality/Trust pass thresholds.</li>
+          <li><code>weights.yaml</code> — the per-dimension weights behind the Fit and Reality scores. Care more about comp than growth, or geo-eligibility more than timezone? Change the number.</li>
+        </ul>
+        <p>Change a value, re-run <code>evaluate</code> — the next report reflects it immediately.</p>
+      </section>
+
+      <section class="doc-section" id="scanning">
+        <h2>Scanning sources</h2>
+        <p><code>sources/companies.yaml</code> lists the companies <code>scan</code> pulls from, grouped by ATS (Greenhouse, Ashby, Lever) with a verified token per company. Add your own — the token is the slug from the company's public job-board URL. <code>scan</code> skips any token that 404s and tells you which one, so a stale entry never breaks a run.</p>
+        <p>Most companies — especially in Pakistan — don't run a public Greenhouse/Ashby/Lever board. For those, the same file keeps a <code>pakistan_reference</code> list of real, verified career-page URLs. Open one, copy a listing, and <code>ingest</code> it instead — it gets scored and tracked exactly like a scanned job.</p>
+      </section>
+
+      <section class="doc-section" id="dashboard">
+        <h2>The dashboard</h2>
+        <p><code>npm run dashboard</code> starts a small local web server at <code>http://localhost:4173</code> — your whole pipeline as a card grid, animated Fit/Reality/Trust rings, and a pursue/skip/scam verdict per role. Click any card to read the full evaluation report in a drawer.</p>
+        <p>It binds to <span class="mono">127.0.0.1</span> only and reads <code>data/tracker.md</code> directly — nothing is uploaded, and no other machine on your network can reach it.</p>
+      </section>
+
+      <section class="doc-section" id="privacy">
+        <h2>Privacy</h2>
+        <p>Everything is local. Your profile, CVs and pipeline are plain-text files on your machine and are gitignored by default. The dashboard binds to <span class="mono">127.0.0.1</span> and never phones home. Nothing leaves your computer except the applications you choose to submit.</p>
+      </section>
+
+      <section class="doc-section" id="troubleshooting">
+        <h2>Troubleshooting</h2>
+        <ul>
+          <li><b>"Playwright isn't installed"</b> when tailoring a CV → <code>npm install playwright && npx playwright install chromium</code>. The HTML output still works meanwhile; print it to PDF from any browser.</li>
+          <li><b><code>scan</code> returns 0 jobs or errors on every board</b> → check that the tokens in <code>sources/companies.yaml</code> haven't gone stale; companies do migrate ATS platforms.</li>
+          <li><b>Dashboard shows demo data</b> → your <code>data/tracker.md</code> has no jobs yet. Run <code>ingest</code> or <code>scan</code> first.</li>
+          <li><b>A score looks off</b> → scores are guidance, not verdicts. Adjust <code>config/weights.yaml</code> and <code>config/settings.yaml</code> to match your priorities, then re-run <code>evaluate</code>.</li>
+        </ul>
+      </section>
+
+      <section class="doc-section" id="status">
+        <h2>What's built</h2>
+        <p>Every milestone in the original roadmap is complete — the whole loop works today, end to end.</p>
+        <div class="status-grid">
+          <div class="status-item"><span class="status-dot"></span>profile + dual-CV bootstrap</div>
+          <div class="status-item"><span class="status-dot"></span>ingest + track (pipeline)</div>
+          <div class="status-item"><span class="status-dot"></span>evaluate (Fit / Reality / Trust)</div>
+          <div class="status-item"><span class="status-dot"></span>trust-check fraud ruleset</div>
+          <div class="status-item"><span class="status-dot"></span>geo-check + comp-reality</div>
+          <div class="status-item"><span class="status-dot"></span>scan (Greenhouse/Ashby/Lever)</div>
+          <div class="status-item"><span class="status-dot"></span>tailor-cv + cover-letter (PDF)</div>
+          <div class="status-item"><span class="status-dot"></span>proposal (freelance track)</div>
+          <div class="status-item"><span class="status-dot"></span>story-bank + interview-prep</div>
+          <div class="status-item"><span class="status-dot"></span>local web dashboard</div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="contribute">
+        <h2>Contribute</h2>
+        <p>LinxIn is open source (MIT) and built for people. The most valuable help right now is sharpening the scam-detection rules, geo-eligibility heuristics, and source recipes for local boards. Start with the repo and its <a href="https://github.com/hassanm57/LinxIn/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">CONTRIBUTING guide</a>.</p>
+        <p><a href="https://github.com/hassanm57/LinxIn" target="_blank" rel="noopener">→ github.com/hassanm57/LinxIn</a></p>
+      </section>
     </main>
   </div>
 
@@ -127,5 +228,7 @@ npm run dashboard        <span class="c"># http://localhost:4173</span></pre>
       <nav class="foot-links"><a href="/">Home</a><a href="https://github.com/hassanm57/LinxIn" target="_blank" rel="noopener">GitHub</a></nav>
     </div>
   </footer>
+
+  <script src="/script.js"></script>
 </body>
 </html>

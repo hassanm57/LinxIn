@@ -62,3 +62,52 @@ termTabs.forEach((tab) => {
     setTimeout(() => { swap(); termLaunchLine.classList.remove("swap"); }, 120);
   });
 });
+
+// FAQ accordion — click (or Enter/Space) a question to expand/collapse its answer.
+// First item starts open so the interaction is discoverable at a glance.
+document.querySelectorAll(".faq-item").forEach((item, i) => {
+  const dt = item.querySelector("dt");
+  if (!dt) return;
+  dt.tabIndex = 0;
+  dt.setAttribute("role", "button");
+  const toggle = () => {
+    const open = item.classList.toggle("is-open");
+    dt.setAttribute("aria-expanded", String(open));
+  };
+  dt.addEventListener("click", toggle);
+  dt.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
+  });
+  if (i === 0) toggle();
+});
+
+// scroll cue — click scrolls to the next section
+document.querySelector(".scroll-cue")?.addEventListener("click", () => {
+  document.querySelector("#how, .strip")?.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+});
+
+// docs page: sidebar scrollspy — highlight the doc-nav link for the section in view
+const docSections = document.querySelectorAll(".doc-section[id]");
+const docNavLinks = document.querySelectorAll(".doc-nav a");
+if (docSections.length && docNavLinks.length) {
+  const spy = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      const link = document.querySelector(`.doc-nav a[href="#${e.target.id}"]`);
+      if (!link) continue;
+      docNavLinks.forEach((a) => a.classList.remove("is-active"));
+      link.classList.add("is-active");
+    }
+  }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
+  docSections.forEach((s) => spy.observe(s));
+
+  // reveal doc sections on scroll, same pattern as the landing page
+  const docReveal = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      e.target.classList.add("in");
+      docReveal.unobserve(e.target);
+    }
+  }, { threshold: 0.1, rootMargin: "0px 0px -8% 0px" });
+  docSections.forEach((s) => { reduce ? s.classList.add("in") : docReveal.observe(s); });
+}

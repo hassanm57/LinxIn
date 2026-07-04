@@ -6,17 +6,118 @@
 #   Lever      -> jobs.lever.co/<token>
 #   Ashby      -> jobs.ashbyhq.com/<token>
 #
-# The entries below are ILLUSTRATIVE placeholders to show the shape. Curate this
-# list for the roles YOU want and the companies you'd actually work for. `scan`
-# skips any token that 404s and tells you, so a wrong token won't break a run —
-# but a real, curated list is what makes scanning useful. Prefer remote-friendly
-# employers if you're hunting from Pakistan.
+# Every entry below was verified live against the real public API on 2026-07-03
+# (each returned real job listings at check time — job counts change daily, so
+# don't expect the same numbers). `scan` skips any token that 404s and tells
+# you, so a stale token won't break a run — but re-check periodically since
+# companies do migrate ATS platforms.
+#
+# This list leans toward companies known to hire remote-anywhere or with a
+# track record of Pakistan/South-Asia hires. Trim it to roles YOU want, and
+# add your own — `npm run scan -- --keywords "..." --remote-only` filters
+# whatever is here.
 
 greenhouse:
-  - { company: "Example Co", token: "examplecompany" }
+  - { company: "GitLab", token: "gitlab" }
+  - { company: "Stripe", token: "stripe" }
+  - { company: "Datadog", token: "datadog" }
+  - { company: "Cloudflare", token: "cloudflare" }
+  - { company: "Reddit", token: "reddit" }
+  - { company: "Pinterest", token: "pinterest" }
+  - { company: "Brex", token: "brex" }
+  - { company: "Elastic", token: "elastic" }
+  - { company: "Affirm", token: "affirm" }
+  - { company: "Instacart", token: "instacart" }
+  - { company: "Figma", token: "figma" }
+  - { company: "Asana", token: "asana" }
+  - { company: "Robinhood", token: "robinhood" }
+  - { company: "Discord", token: "discord" }
+  - { company: "Airtable", token: "airtable" }
+  # Pakistan-relevant: Dubai HQ, hires heavily for Karachi engineering/growth roles
+  - { company: "Careem", token: "careem" }
 
 lever:
-  - { company: "Example (Lever)", token: "exampleco" }
+  # Lever has a much smaller live-company footprint than Greenhouse/Ashby today;
+  # most large employers have migrated off it. Palantir is a confirmed exception.
+  - { company: "Palantir Technologies", token: "palantir" }
 
 ashby:
-  - { company: "Example (Ashby)", token: "exampleco" }
+  - { company: "OpenAI", token: "openai" }
+  - { company: "Ramp", token: "ramp" }
+  - { company: "Notion", token: "notion" }
+  - { company: "Replit", token: "replit" }
+  - { company: "Synthesia", token: "synthesia" }
+  - { company: "Linear", token: "linear" }
+  - { company: "Substack", token: "substack" }
+  - { company: "Runway", token: "runway" }
+  # Pakistan-relevant: Lahore-based, YC-backed B2B marketplace
+  - { company: "Tajir", token: "tajir" }
+
+# ---------------------------------------------------------------------------
+# Pakistan tech companies — reference list (alphabetical)
+#
+# Verified this list against real ATS APIs first: almost none of these run
+# public Greenhouse/Ashby/Lever boards (Tajir and Careem above are the
+# confirmed exceptions), so `scan` can't pull them automatically. This is
+# expected, not a bug — it's exactly why `ingest` exists.
+#
+# To use: open a company's careers page below, copy a listing you're
+# interested in, and tell your AI CLI "ingest this listing: <paste>". It'll
+# get scored (Fit/Reality/Trust) and tracked exactly like a scanned job.
+#
+# Domains were checked live on 2026-07-03. Spans IT services/software houses,
+# fintech, e-commerce/logistics, telecom, and health/ed-tech-adjacent startups.
+# A couple (Bykea, Telenor) sit behind a bot-check that blocks automated
+# fetches but load fine in a real browser — still real, correct URLs.
+# ---------------------------------------------------------------------------
+pakistan_reference:
+  - { company: "10Pearls", careers: "https://www.10pearls.com/careers/" }
+  - { company: "Abhi", careers: "https://abhi.com.pk/" }
+  - { company: "Airlift Technologies", careers: "https://www.airlift.com/careers" }
+  - { company: "Arbisoft", careers: "https://www.arbisoft.com/careers" }
+  - { company: "Bazaar Technologies", careers: "https://www.bazaartech.com/careers" }
+  - { company: "Bookme.pk", careers: "https://bookme.pk/" }
+  - { company: "Bykea", careers: "https://www.bykea.com/careers" }
+  - { company: "Careem", careers: "https://boards.greenhouse.io/careem" }
+  - { company: "Cloudways", careers: "https://www.cloudways.com/en/careers.php" }
+  - { company: "Confiz", careers: "https://www.confiz.com/careers/" }
+  - { company: "Contour Software", careers: "https://contour-software.com/careers/" }
+  - { company: "CreditBook", careers: "https://www.creditbook.pk/careers" }
+  - { company: "Daraz", careers: "https://careers.daraz.com/" }
+  - { company: "Dastgyr", careers: "https://www.dastgyr.com/careers" }
+  - { company: "Devsinc", careers: "https://devsinc.com/careers/" }
+  - { company: "Finja", careers: "https://finja.pk/careers/" }
+  - { company: "Folio3", careers: "https://folio3.com/careers/" }
+  - { company: "i2c Inc", careers: "https://www.i2cinc.com/careers" }
+  - { company: "iCreativez Technologies", careers: "https://www.icreativez.com/careers.aspx" }
+  - { company: "Invently", careers: "https://invently.com/careers/" }
+  - { company: "InvoZone", careers: "https://invozone.com/careers" }
+  - { company: "Jazz", careers: "https://careers.jazzworld.com.pk/" }
+  - { company: "Kualitatem", careers: "https://www.kualitatem.com/careers/" }
+  - { company: "LMKR", careers: "https://www.lmkr.com/careers/" }
+  - { company: "Marham", careers: "https://www.marham.pk/careers" }
+  - { company: "Mindstorm Studios", careers: "https://mindstormstudios.simplicant.com/" }
+  - { company: "NayaPay", careers: "https://www.nayapay.com/careers" }
+  - { company: "Neem", careers: "https://www.neem.io/careers" }
+  - { company: "NetSol Technologies", careers: "https://careers.netsoltech.com/" }
+  - { company: "Nextbridge", careers: "https://nextbridge.com/careers/" }
+  - { company: "PakWheels", careers: "https://www.pakwheels.com/careers/" }
+  - { company: "PostEx", careers: "https://postex.pk/" }
+  - { company: "PTCL", careers: "https://www.ptcl.com.pk/Careers" }
+  - { company: "Retailo", careers: "https://retailo.zohorecruit.com/jobs/Careers" }
+  - { company: "SadaPay", careers: "https://sadapay.pk/careers/" }
+  - { company: "Safepay", careers: "https://getsafepay.com/careers" }
+  - { company: "Sehat Kahani", careers: "https://sehatkahani.com/careers/" }
+  - { company: "Systems Limited", careers: "https://www.systemsltd.com/careers/" }
+  - { company: "Tajir", careers: "https://jobs.ashbyhq.com/tajir" }
+  - { company: "Techlogix", careers: "https://www.techlogix.com/careers/" }
+  - { company: "Telenor Pakistan", careers: "https://www.telenor.com.pk/about-us/careers" }
+  - { company: "TkXel", careers: "https://careers.tkxel.com/" }
+  - { company: "TRG Pakistan", careers: "https://careers.trginternational.com/" }
+  - { company: "Truck It In", careers: "https://truckitin.com/careers/" }
+  - { company: "Ufone", careers: "https://www.ufone.com/" }
+  - { company: "VentureDive", careers: "https://venturedive.com/careers/" }
+  - { company: "Xavor Corporation", careers: "https://xavor.com/careers/" }
+  - { company: "Xgrid", careers: "https://xgrid.co/careers/" }
+  - { company: "Zameen.com", careers: "https://www.zameen.com/careers.html" }
+  - { company: "Zones Pakistan", careers: "https://www.zones.com/site/careers/" }
